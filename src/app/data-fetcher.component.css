@@ -1,5 +1,6 @@
-.container { 
-    max-width: 400px; 
+.container {
+    height: 70vh; 
+    width: 100%;
     margin: auto; 
     padding: 20px; 
     text-align: center; 
@@ -31,19 +32,57 @@
 
 .data-table { 
     width: 100%; 
-    border-collapse: collapse; 
+    border-collapse: collapse;
+    gap: 5px;
     margin-top: 10px; 
     margin-left: -15px;
     color: white;
-    display: left;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
 
 }
 
-.data-table th, .data-table td { 
+.data-table thead,
+.data-table tbody,
+.data-table tr {
+    display: contents;
+}
+
+/* .data-table th, .data-table td { 
     border: 1px solid white; 
     padding: 8px; 
     text-align: center;
     display: center;
+} */
+
+.data-table th {
+    background: #333;
+    cursor: pointer;
+    user-select: none;
+    padding: 10px;
+    border: 1px solid white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.data-table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid white;
+    background: #555;
+}
+
+.data-table tr:nth-child(even) td {
+    background: #555;
+}
+
+.data-table th:hover {
+    background: #555;
+}
+
+.data-table th span {
+    font-size: 12px;
+    margin-left: 5px;
 }
 
 .data-list {
@@ -62,4 +101,35 @@
 .data-empty {
     color: white;
     font-style: italic;
+}
+
+
+.table-container {
+    flex-grow: 1;
+    max-height: 70vh; 
+    overflow-y: auto; 
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    background: #222;
+    border: 1px solid #ccc;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
 }
