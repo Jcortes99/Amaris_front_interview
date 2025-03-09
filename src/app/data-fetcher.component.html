@@ -1,0 +1,21 @@
+<div class="container">
+    <input type="number" [(ngModel)]="number" placeholder="Ingrese un número" class="input-box" />
+    <button (click)="fetchData()" class="btn">Obtener Datos</button>
+    
+    <table *ngIf="data && !isArray" class="data-table">
+        <thead>
+        <tr>
+            <th *ngFor="let key of dataKeys">{{ key }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let row of data">
+            <td *ngFor="let key of dataKeys">{{ row[key] }}</td>
+        </tr>
+        </tbody>
+    </table>
+    
+    <ul *ngIf="isArray" class="data-list">
+        <li *ngFor="let item of listData">{{ item }}</li>
+    </ul>
+    </div>
