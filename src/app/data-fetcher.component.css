@@ -58,6 +58,7 @@
 .data-table th {
     background: #333;
     cursor: pointer;
+    -webkit-user-select: none;
     user-select: none;
     padding: 10px;
     border: 1px solid white;

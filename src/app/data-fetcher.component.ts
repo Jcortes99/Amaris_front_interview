@@ -25,8 +25,8 @@ export class DataFetcherComponent {
 
     fetchData() {
         let url = this.number !== null
-            ? `http://localhost:8080/Users/get-anual-salary/${this.number}`
-            : `http://localhost:8080/Users/get-all-users`; 
+            ? `http://localhost:8080/SoftwareInterview/Users/get-anual-salary/${this.number}`
+            : `http://localhost:8080/SoftwareInterview/Users/get-all-users`; 
 
         this.http.get<any>(url).subscribe(
             response => {
