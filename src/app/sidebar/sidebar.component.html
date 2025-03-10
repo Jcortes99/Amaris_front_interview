@@ -1,0 +1,10 @@
+<button class="hamburger" (click)="toggleMenu()">☰</button>
+
+<div class="sidebar" [class.open]="isOpen">
+    <nav>
+        <ul>
+            <li><a routerLink="/home" (click)="toggleMenu()">Home</a></li>
+            <li><a routerLink="/DB" (click)="toggleMenu()">Employees' Data Base</a></li>
+        </ul>
+    </nav>
+</div>
