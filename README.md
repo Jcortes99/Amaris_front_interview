@@ -47,7 +47,7 @@ To run this project, follow these steps:
    ```
    http://localhost:4200/index.csr.html
    ```
-   Then, **click on home** (this step is necessary for unknown reasons).
+   Then, **click on home, in the menu** (this step is necessary for unknown reasons).
 
 ## The Web Application
 
