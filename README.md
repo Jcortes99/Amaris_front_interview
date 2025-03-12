@@ -2,46 +2,60 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
 
-## Development server
+## Development Server
 
-For run this project you need to follow:
+To run this project, follow these steps:
 
-1) go inside the folder dist/amaris_front/browser
+1) Navigate to the folder `dist/amaris_front/browser`
 
-2) ```npm install```
+2) Run:
+   ```sh
+   npm install
+   ```
 
-3) ``` http-serve -p 4200 ``` You need this port because the backend cors just allow request from localhost:4200.
+3) Start the server using:
+   ```sh
+   http-server -p 4200
+   ```
+   You need this specific port because the backend CORS policy only allows requests from `localhost:4200`.
 
-4) put in the web browser: http://localhost:4200/index.csr.html and reload the web (I don't know why but you need to reload the web page)
+4) Open your web browser and go to:
+   ```
+   http://localhost:4200/index.csr.html
+   ```
+   Then, **reload the page** (this step is necessary for unknown reasons).
 
-## The Web Page
+## The Web Application
 
-The web has 3 views, the [home](#home) (homeyes), the [Employees' Data Base](#db) (DB) and the [Analytics](#analytics).
+The web application consists of three main views: [Home](#home), [Employees' Database](#db), and [Analytics](#analytics).
 
-### HOME
+### Home
 
-Here you can find the clickable logo of amaris.
+This view contains the clickable Amaris logo.
 
-### DB
+### Employees' Database (DB)
 
-Here you can ask TO THE BACKEND the information of the Employees API. You have to wait 30 second between request. (Anti-scrapping web page)
+In this view, you can request employee information from the backend API. **There is a 30-second cooldown between requests** (anti-scraping measure).
 
-1) If the field is empty, it returns the list of all the employees. You can sort de columns by clicking on the header.
-
-2) If you put a valid id (1-24) it returns the information of that employee.
-
-YOU HAVE TO WAIT 30 SECONDS BETWEEN THE REQUESTING.
+1) If the search field is empty, the system returns a list of all employees. You can sort the columns by clicking on the headers.
+2) If you enter a valid employee ID (1-24), the system returns the details of that specific employee.
 
 ### Analytics
 
-At the moment you enter into this view, the front ask to the back a full request of all the employees. So, YOU HAVE TO WAIT 30 SECONDS after any request.
+When you enter this view, the frontend automatically makes a request to fetch all employees' data from the backend. **You must wait 30 seconds before making another request.**
 
-This view will display 4 charts about the information of the employees, ages and salary. 
+This view displays **four charts** related to employee information, including age and salary distribution.
 
-## Additional comments
+## Additional Comments
 
-I'm not good making front-end the are many things to improve
+- I'm not very experienced in front-end development, so there are many things that could be improved.
+- The application contains repeated blocks of code in various places; I forgot to create a proper service or apply better coding practices.
+- The application **does not store employee information in memory**. This is why there is a waiting time between requests. A better approach would be to cache the data in memory to reduce unnecessary API calls.
+- The reason for this design choice is that, during the interview, I focused on making requests and utilizing the provided API.
+- This project is aiming to fetch the wildFly server. If you are testing the back-end using ```mvn spring-boot:run``` you have to avoid the name of the project in the url:
+```bash
+/src/app/data-fetcher/data-fetcher.component.ts
 
-The aplication have repeted block of code in many parts, I just forgot to make a service o better pratices in this aplication.
-
-The app DO NOT save the employees information in memory. For that reason you have to wait between request. The best solution is to have all the information saved in memory to improve the program, avoiding useless request to the employees' API. I did it because in this interview I tried to make the request and use the API.
+line 28: from http://localhost:8080/SoftwareInterview/Users/get-anual-salary/${this.number} to http://localhost:8080/Users/get-anual-salary/${this.number}
+line 29: from http://localhost:8080/SoftwareInterview/Users/get-all-users to http://localhost:8080/Users/get-all-users
+```
