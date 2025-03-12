@@ -4,56 +4,44 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ## Development server
 
-To start a local development server, run:
+For run this project you need to follow:
 
-```bash
-ng serve
-```
+1) go inside the folder dist/amaris_front/browser
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+2) ```npm install```
 
-## Code scaffolding
+3) ``` http-serve -p 4200 ``` You need this port because the backend cors just allow request from localhost:4200.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+4) put in the web browser: http://localhost:4200/index.csr.html and reload the web (I don't know why but you need to reload the web page)
 
-```bash
-ng generate component component-name
-```
+## The Web Page
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+The web has 3 views, the [home](#home) (homeyes), the [Employees' Data Base](#db) (DB) and the [Analytics](#analytics).
 
-```bash
-ng generate --help
-```
+### HOME
 
-## Building
+Here you can find the clickable logo of amaris.
 
-To build the project run:
+### DB
 
-```bash
-ng build
-```
+Here you can ask TO THE BACKEND the information of the Employees API. You have to wait 30 second between request. (Anti-scrapping web page)
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+1) If the field is empty, it returns the list of all the employees. You can sort de columns by clicking on the header.
 
-## Running unit tests
+2) If you put a valid id (1-24) it returns the information of that employee.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+YOU HAVE TO WAIT 30 SECONDS BETWEEN THE REQUESTING.
 
-```bash
-ng test
-```
+### Analytics
 
-## Running end-to-end tests
+At the moment you enter into this view, the front ask to the back a full request of all the employees. So, YOU HAVE TO WAIT 30 SECONDS after any request.
 
-For end-to-end (e2e) testing, run:
+This view will display 4 charts about the information of the employees, ages and salary. 
 
-```bash
-ng e2e
-```
+## Additional comments
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+I'm not good making front-end the are many things to improve
 
-## Additional Resources
+The aplication have repeted block of code in many parts, I just forgot to make a service o better pratices in this aplication.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+The app DO NOT save the employees information in memory. For that reason you have to wait between request. The best solution is to have all the information saved in memory to improve the program, avoiding useless request to the employees' API. I did it because in this interview I tried to make the request and use the API.
