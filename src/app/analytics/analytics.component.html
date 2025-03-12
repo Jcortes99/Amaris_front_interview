@@ -1,0 +1,62 @@
+<div class="chart-container">
+    <button (click)="prevChart()">◀</button>
+    <h2>Employe's stadistics</h2>
+    <ngx-charts-bar-vertical
+        *ngIf="chartIndex === 0"
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="single"
+        [gradient]="gradient"
+        [xAxis]="true"
+        [yAxis]="true"
+        [legend]="showLegend"
+        [showXAxisLabel]="true"
+        [showYAxisLabel]="true"
+        [xAxisLabel]="'Age'"
+        [yAxisLabel]="'number of employees'"
+        [legendTitle]="'Ages\' distribution'"
+        (select)="onSelect($event)">
+    </ngx-charts-bar-vertical>
+    <ngx-charts-pie-chart
+        *ngIf="chartIndex === 1"
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="single"
+        [gradient]="gradient"
+        [legend]="showLegend"
+        [labels]="showLabels"
+        [doughnut]="isDoughnut"
+        [explodeSlices]="false"
+        [legendTitle]="'Ages\' distribution (pie Chart)'"
+        [animations]="true">
+    </ngx-charts-pie-chart>
+    <ngx-charts-pie-chart
+        *ngIf="chartIndex === 2"
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="salaryList"
+        [gradient]="gradient"
+        [legend]="showLegend"
+        [labels]="showLabels"
+        [doughnut]="isDoughnut"
+        [explodeSlices]="false"
+        [legendTitle]="'Salaries\' distribution'"
+        [animations]="true">
+    </ngx-charts-pie-chart>
+    <ngx-charts-bar-vertical
+        *ngIf="chartIndex === 3"
+        [view]="view"
+        [scheme]="colorScheme"
+        [results]="salaryList"
+        [gradient]="gradient"
+        [xAxis]="true"
+        [yAxis]="true"
+        [legend]="showLegend"
+        [showXAxisLabel]="true"
+        [showYAxisLabel]="true"
+        [xAxisLabel]="'Employee'"
+        [legendTitle]="'Salary\' distribution'"
+        [yAxisLabel]="'Salary'">
+</ngx-charts-bar-vertical>
+    <button (click)="nextChart()">▶</button>
+</div>
