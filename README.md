@@ -2,6 +2,30 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
 
+## Installation
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/Jcortes99/Amaris_front_interview.git
+
+cd amaris_front_interview
+```
+
+2. Install dependencies
+
+```bash
+npm install
+```
+
+## Build Application
+
+Generar el build
+
+ng build --configuration=production
+
+This will create the files in dist/amaris_fort/browser
+
 ## Development Server
 
 To run this project, follow these steps:
